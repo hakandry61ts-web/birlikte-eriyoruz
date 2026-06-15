@@ -3397,7 +3397,30 @@
       saveSettingsToStorage();
       renderApp();
 
-      alert("Ayarlar kaydedildi.");
+      
+
+    function closeSplashScreen() {
+      const splash = document.getElementById("splashScreen");
+      if (!splash) return;
+
+      splash.classList.add("hide");
+
+      setTimeout(() => {
+        if (splash && splash.parentNode) {
+          splash.parentNode.removeChild(splash);
+        }
+      }, 850);
+    }
+
+    setTimeout(closeSplashScreen, 2600);
+    window.addEventListener("load", () => {
+      setTimeout(closeSplashScreen, 900);
+    });
+    document.addEventListener("DOMContentLoaded", () => {
+      setTimeout(closeSplashScreen, 2600);
+    });
+
+alert("Ayarlar kaydedildi.");
     }
 
     function saveSettingsToStorage() {
@@ -6479,23 +6502,9 @@
     }
     renderApp();
 
-    window.addEventListener("load", () => {
-      const splash = document.getElementById("splashScreen");
-      if (!splash) return;
-
-      setTimeout(() => {
-        splash.classList.add("hide");
-
-        setTimeout(() => {
-          splash.remove();
-        }, 850);
-      }, 2200);
-    });
-
-
     if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./service-worker.js").catch((error) => {
+        navigator.serviceWorker.register("./service-worker.js?v=13").catch((error) => {
           console.log("Service worker kaydedilemedi:", error);
         });
       });
