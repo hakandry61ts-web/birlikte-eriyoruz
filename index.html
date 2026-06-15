@@ -2135,183 +2135,7 @@
       color: #72b7ff;
       border: 1px solid rgba(114, 183, 255, 0.22);
     }
-
-
-    .splash-screen {
-      position: fixed;
-      inset: 0;
-      z-index: 99999;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background:
-        radial-gradient(circle at 20% 18%, rgba(67,209,122,.22), transparent 30%),
-        radial-gradient(circle at 82% 26%, rgba(114,183,255,.22), transparent 32%),
-        radial-gradient(circle at 50% 86%, rgba(255,209,102,.10), transparent 28%),
-        linear-gradient(180deg,#06111e,#050910);
-      transition: opacity .75s ease, visibility .75s ease;
-    }
-
-    .splash-screen.hide {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
-    }
-
-    .splash-content {
-      width: min(92vw, 430px);
-      text-align: center;
-      padding: 24px 18px;
-      animation: splashPop .75s ease both;
-    }
-
-    @keyframes splashPop {
-      from {
-        opacity: 0;
-        transform: translateY(18px) scale(.96);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-      }
-    }
-
-    .splash-logo {
-      position: relative;
-      width: 142px;
-      height: 142px;
-      margin: 0 auto 28px;
-      border-radius: 38px;
-      background:
-        linear-gradient(135deg, rgba(114,183,255,.22), rgba(67,209,122,.24));
-      border: 1px solid rgba(255,255,255,.16);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      box-shadow:
-        0 22px 70px rgba(0,0,0,.42),
-        0 0 44px rgba(67,209,122,.16),
-        inset 0 0 0 1px rgba(255,255,255,.06);
-    }
-
-    .splash-logo::before {
-      content: "";
-      position: absolute;
-      inset: 9px;
-      border-radius: 30px;
-      background: rgba(8, 17, 31, 0.80);
-    }
-
-    .splash-logo-inner {
-      position: relative;
-      z-index: 2;
-      font-size: 62px;
-      line-height: 1;
-      font-weight: 1000;
-      letter-spacing: -3px;
-      background: linear-gradient(180deg, #ffffff 0%, #72b7ff 44%, #43d17a 100%);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      filter: drop-shadow(0 12px 22px rgba(0,0,0,.35));
-    }
-
-    .splash-drip {
-      position: absolute;
-      z-index: 3;
-      top: 82%;
-      border-radius: 999px;
-      background: linear-gradient(180deg, #72b7ff, #43d17a);
-      box-shadow: 0 8px 20px rgba(67,209,122,.32);
-      animation: splashDrip 2.2s ease-in-out infinite;
-    }
-
-    .splash-drip.drip-one {
-      left: 31px;
-      width: 12px;
-      height: 34px;
-    }
-
-    .splash-drip.drip-two {
-      left: 64px;
-      width: 16px;
-      height: 47px;
-      animation-delay: .28s;
-    }
-
-    .splash-drip.drip-three {
-      right: 31px;
-      width: 11px;
-      height: 29px;
-      animation-delay: .55s;
-    }
-
-    @keyframes splashDrip {
-      0%, 100% {
-        transform: translateY(0) scaleY(1);
-        opacity: .82;
-      }
-      50% {
-        transform: translateY(11px) scaleY(1.16);
-        opacity: 1;
-      }
-    }
-
-    .splash-title {
-      margin: 0;
-      color: #ffffff;
-      font-size: clamp(46px, 11vw, 74px);
-      font-weight: 1000;
-      line-height: .9;
-      letter-spacing: -1px;
-      text-shadow: 0 18px 40px rgba(0,0,0,.42);
-    }
-
-    .splash-slogan {
-      margin: 22px 0 0;
-      color: #43d17a;
-      font-size: 18px;
-      font-weight: 850;
-      letter-spacing: .2px;
-    }
-
-    .splash-author {
-      margin: 46px 0 0;
-      color: #f8fafc;
-      font-size: 17px;
-      font-weight: 800;
-      letter-spacing: .6px;
-      text-shadow: 0 8px 20px rgba(0,0,0,.45);
-    }
-
-    @media (max-width: 390px) {
-      .splash-logo {
-        width: 124px;
-        height: 124px;
-        border-radius: 32px;
-        margin-bottom: 24px;
-      }
-
-      .splash-logo::before {
-        border-radius: 25px;
-      }
-
-      .splash-logo-inner {
-        font-size: 54px;
-      }
-
-      .splash-slogan {
-        font-size: 16px;
-      }
-
-      .splash-author {
-        font-size: 15px;
-        margin-top: 38px;
-      }
-    }
-
-
-    .setup-error-box {
+.setup-error-box {
       display: none;
       margin-top: 10px;
       padding: 10px 12px;
@@ -2361,26 +2185,7 @@
 </head>
 
 <body class="summary-active">
-  <div id="splashScreen" class="splash-screen">
-    <div class="splash-content">
-      <div class="splash-logo">
-        <div class="splash-logo-inner">BE</div>
-        <span class="splash-drip drip-one"></span>
-        <span class="splash-drip drip-two"></span>
-        <span class="splash-drip drip-three"></span>
-      </div>
-
-      <h1 class="splash-title">
-        BİRLİKTE<br>
-        ERİYORUZ
-      </h1>
-
-      <p class="splash-slogan">🔥 Bugün biraz daha eriyoruz</p>
-      <p class="splash-author">created by Hakan K.</p>
-    </div>
-  </div>
-
-  <div class="app">
+<div class="app">
     <div class="app-topbar">
       <div class="brand-logo top-logo">
         <div class="brand-logo-inner">BE</div>
@@ -2425,19 +2230,7 @@
         <div class="premium-metric-value green" id="heroLostChip">--</div>
       </div>
     </div>
-<div class="achievement-preview-card summary-only">
-      <div class="section-head">
-        <div>
-          <h2>Başarı rozetleri</h2>
-          <div class="muted">Seri yap, kilo ver, ölçüm gir; rozetleri kazan.</div>
-        </div>
-        <div class="streak-pill" id="streakPill">🔥 0 gün</div>
-      </div>
-
-      <div class="achievement-mini-grid" id="achievementPreviewContent"></div>
-    </div>
-
-    <div class="info-card summary-only summary-body-change-card">
+<div class="info-card summary-only summary-body-change-card">
       <h2>Vücut değişimi</h2>
       <div id="summaryBodyChangeContent"></div>
     </div>
@@ -3397,30 +3190,7 @@
       saveSettingsToStorage();
       renderApp();
 
-      
-
-    function closeSplashScreen() {
-      const splash = document.getElementById("splashScreen");
-      if (!splash) return;
-
-      splash.classList.add("hide");
-
-      setTimeout(() => {
-        if (splash && splash.parentNode) {
-          splash.parentNode.removeChild(splash);
-        }
-      }, 850);
-    }
-
-    setTimeout(closeSplashScreen, 2600);
-    window.addEventListener("load", () => {
-      setTimeout(closeSplashScreen, 900);
-    });
-    document.addEventListener("DOMContentLoaded", () => {
-      setTimeout(closeSplashScreen, 2600);
-    });
-
-alert("Ayarlar kaydedildi.");
+      alert("Ayarlar kaydedildi.");
     }
 
     function saveSettingsToStorage() {
@@ -6501,12 +6271,30 @@ alert("Ayarlar kaydedildi.");
       checkFirstName();
     }
     renderApp();
-
-    if ("serviceWorker" in navigator) {
+if ("serviceWorker" in navigator) {
       window.addEventListener("load", () => {
-        navigator.serviceWorker.register("./service-worker.js?v=13").catch((error) => {
+        navigator.serviceWorker.register("./service-worker.js").catch((error) => {
           console.log("Service worker kaydedilemedi:", error);
         });
+      });
+    }
+
+
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", async () => {
+        try {
+          const registrations = await navigator.serviceWorker.getRegistrations();
+          for (const registration of registrations) {
+            await registration.unregister();
+          }
+
+          if (window.caches) {
+            const names = await caches.keys();
+            await Promise.all(names.map((name) => caches.delete(name)));
+          }
+        } catch (error) {
+          console.log("Cache temizlenemedi:", error);
+        }
       });
     }
 
