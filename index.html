@@ -410,7 +410,7 @@
       width: 100%;
       max-width: 520px;
       display: grid;
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(5, 1fr);
       gap: 8px;
     }
 
@@ -2253,10 +2253,196 @@
       }
     }
 
+
+    body.setup-mode .app,
+    body.setup-mode .bottom-nav {
+      display: none !important;
+    }
+
+    body.setup-mode {
+      overflow: hidden;
+    }
+
+    body.setup-mode .name-overlay {
+      background:
+        radial-gradient(circle at 20% 18%, rgba(67,209,122,.18), transparent 32%),
+        radial-gradient(circle at 82% 25%, rgba(114,183,255,.18), transparent 34%),
+        linear-gradient(180deg, #06111e, #050910) !important;
+      display: flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      z-index: 99999 !important;
+      padding: 14px !important;
+    }
+
+    body.setup-mode .name-box {
+      background: rgba(8, 17, 31, 0.96) !important;
+      border: 1px solid rgba(67, 209, 122, 0.24) !important;
+      box-shadow: 0 24px 70px rgba(0,0,0,.55) !important;
+    }
+
+    .setup-brand {
+      display: none;
+      text-align: center;
+      margin-bottom: 14px;
+    }
+
+    body.setup-mode .setup-brand {
+      display: block;
+    }
+
+    .setup-brand-logo {
+      width: 70px;
+      height: 70px;
+      border-radius: 22px;
+      margin: 0 auto 10px;
+      background: linear-gradient(135deg, #43d17a, #72b7ff);
+      padding: 3px;
+      box-shadow: 0 16px 36px rgba(0,0,0,.32);
+    }
+
+    .setup-brand-logo-inner {
+      height: 100%;
+      border-radius: 19px;
+      background: rgba(8, 17, 31, 0.90);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 28px;
+      font-weight: 1000;
+      color: white;
+      letter-spacing: -1.5px;
+    }
+
+    .setup-brand-title {
+      font-size: 24px;
+      line-height: 1;
+      font-weight: 1000;
+      margin-bottom: 5px;
+    }
+
+    .setup-brand-sub {
+      color: #a8b3bd;
+      font-size: 13px;
+      line-height: 1.35;
+    }
+
+    .app-topbar {
+      position: relative;
+    }
+
+    .settings-round {
+      position: absolute;
+      right: 0;
+      top: 5px;
+    }
+
+
+    .equivalent-main {
+      background: rgba(17, 22, 29, 0.72);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 18px;
+      padding: 14px;
+      margin-top: 12px;
+      text-align: center;
+    }
+
+    .equivalent-number {
+      font-size: 38px;
+      font-weight: 1000;
+      color: #43d17a;
+      line-height: 1;
+      margin-bottom: 5px;
+    }
+
+    .equivalent-grid {
+      display: grid;
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .equivalent-card {
+      display: grid;
+      grid-template-columns: 48px 1fr;
+      gap: 12px;
+      align-items: center;
+      background: rgba(17, 22, 29, 0.72);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 12px;
+    }
+
+    .equivalent-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 27px;
+      background: rgba(255,255,255,0.07);
+    }
+
+    .equivalent-title {
+      font-weight: 900;
+      margin-bottom: 3px;
+    }
+
+    .equivalent-sub {
+      color: #a8b3bd;
+      font-size: 12px;
+    }
+
+    .milestone-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .milestone-item {
+      display: grid;
+      grid-template-columns: 42px 1fr;
+      gap: 10px;
+      align-items: center;
+      background: rgba(17, 22, 29, 0.72);
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 16px;
+      padding: 12px;
+      opacity: .65;
+    }
+
+    .milestone-item.done {
+      opacity: 1;
+      border-color: rgba(67,209,122,.35);
+    }
+
+    .milestone-icon {
+      font-size: 24px;
+      text-align: center;
+    }
+
+    .milestone-title {
+      font-weight: 900;
+    }
+
+    .milestone-sub {
+      color: #a8b3bd;
+      font-size: 12px;
+      margin-top: 3px;
+    }
+
+    .bottom-nav-inner {
+      grid-template-columns: repeat(5, 1fr) !important;
+    }
+
+    .nav-button {
+      font-size: 12px !important;
+      padding: 11px 4px !important;
+    }
+
   </style>
 </head>
 
-<body class="summary-active">
+<body class="summary-active setup-mode">
 <div class="app">
     <div class="app-topbar summary-only">
       <div class="brand-logo top-logo">
@@ -2278,9 +2464,9 @@
       </div>
 
       <div class="hero-greeting" id="brandGreetingText">Merhaba, bugün ne kadar eriyoruz?</div>
-      <div class="hero-description">Her ölçüm küçük bir zafer. Yağlar usulca erirken gelişimini görevler, fotoğraflar ve ilerleme kartlarıyla takip et.</div>
+      <div class="hero-description">Her ölçüm küçük bir adımdır. Gelişimini ölçümler, fotoğraflar ve ilerleme kartlarıyla takip et.</div>
 
-      <div class="fun-badge big-fun-badge">🔥 Bugün biraz daha eriyoruz</div>
+      <div class="fun-badge big-fun-badge">🎯 Hedefe bir adım daha</div>
     </div>
 
     <div class="metric-card-grid summary-only">
@@ -2348,26 +2534,7 @@
 
       <div class="ice-cube">🧊</div>
     </div>
-
-
-    
-
-
-
-    <div class="coach-card coach-card-in-summary">
-      <div class="coach-head">
-        <div class="coach-avatar">🤖</div>
-        <div>
-          <h2>Akıllı koç</h2>
-          <div class="muted">Verilerine göre kısa yorum.</div>
-        </div>
-      </div>
-      <div id="smartCoachContent"></div>
-    </div>
-
-    
-
-      <div class="grid">
+<div class="grid">
         <div class="stat-card">
           <div class="stat-title">Toplam verilen</div>
           <div class="stat-value green" id="lostWeight">-- kg</div>
@@ -2727,6 +2894,41 @@
       </div>
     </div>
 
+
+    <div id="coachPage" class="page">
+      <div class="coach-card">
+        <div class="coach-head">
+          <div class="coach-avatar">🧠</div>
+          <div>
+            <h2>Akıllı Koç</h2>
+            <div class="muted">Verilerine göre yorum, hedef ve motivasyon.</div>
+          </div>
+        </div>
+        <div id="smartCoachContent"></div>
+      </div>
+
+      <div class="info-card">
+        <h2>Kilo karşılığı</h2>
+        <div class="muted">Verdiğin kilonun günlük hayatta neye denk geldiğini gösterir.</div>
+        <div id="weightEquivalentContent"></div>
+      </div>
+
+      <div class="info-card">
+        <h2>Kilometre taşları</h2>
+        <div id="weightMilestoneContent"></div>
+      </div>
+
+      <div class="info-card">
+        <h2>Sonraki hedef</h2>
+        <div id="nextTargetContent"></div>
+      </div>
+
+      <div class="info-card">
+        <h2>Bilgi kartı</h2>
+        <div id="coachInfoCardContent"></div>
+      </div>
+    </div>
+
     <div id="analysisPage" class="page">
       <div class="info-card">
         <h2>Hedefler</h2>
@@ -2848,6 +3050,14 @@
 
   <div id="nameOverlay" class="name-overlay">
     <div class="name-box">
+      <div class="setup-brand">
+        <div class="setup-brand-logo">
+          <div class="setup-brand-logo-inner">BE</div>
+        </div>
+        <div class="setup-brand-title">Birlikte Eriyoruz</div>
+        <div class="setup-brand-sub">Kilo ve vücut ölçüm takip uygulaması</div>
+      </div>
+
       <h2>Hoş geldin 👋</h2>
       <p>Önce seni tanıyalım. Yaş, boy, kilo, cinsiyet ve hedef bilgilerini gir; uygulama sana göre başlasın.</p>
 
@@ -2922,7 +3132,7 @@
 
       <div id="setupErrorBox" class="setup-error-box"></div>
 
-      <button onclick="saveFirstSetup()">Uygulamayı başlat</button>
+      <button onclick="saveFirstSetup()">Başla</button>
     </div>
   </div>
 
@@ -2941,6 +3151,7 @@
       <button class="nav-button" id="addTab" onclick="showPage('add')">Ölçüm</button>
       <button class="nav-button" id="galleryTab" onclick="showPage('gallery')">Galeri</button>
       <button class="nav-button" id="analysisTab" onclick="showPage('analysis')">Analiz</button>
+      <button class="nav-button" id="coachTab" onclick="showPage('coach')">Koç</button>
     </div>
   </div>
 
@@ -2978,11 +3189,13 @@
     const addPage = document.getElementById("addPage");
     const galleryPage = document.getElementById("galleryPage");
     const analysisPage = document.getElementById("analysisPage");
+    const coachPage = document.getElementById("coachPage");
 
     const summaryTab = document.getElementById("summaryTab");
     const addTab = document.getElementById("addTab");
     const galleryTab = document.getElementById("galleryTab");
     const analysisTab = document.getElementById("analysisTab");
+    const coachTab = document.getElementById("coachTab");
 
     const userNameInput = document.getElementById("userNameInput");
     const appThemeInput = document.getElementById("appThemeInput");
@@ -3062,6 +3275,10 @@
     const goalsContentEl = document.getElementById("goalsContent");
     const achievementContentEl = document.getElementById("achievementContent");
     const smartCoachContentEl = document.getElementById("smartCoachContent");
+    const weightEquivalentContentEl = document.getElementById("weightEquivalentContent");
+    const weightMilestoneContentEl = document.getElementById("weightMilestoneContent");
+    const nextTargetContentEl = document.getElementById("nextTargetContent");
+    const coachInfoCardContentEl = document.getElementById("coachInfoCardContent");
     const calendarContentEl = document.getElementById("calendarContent");
     const calendarTitleEl = document.getElementById("calendarTitle");
     const storyShareCanvas = document.getElementById("storyShareCanvas");
@@ -3130,11 +3347,13 @@
       addPage.classList.remove("active");
       galleryPage.classList.remove("active");
       analysisPage.classList.remove("active");
+      coachPage.classList.remove("active");
 
       summaryTab.classList.remove("active");
       addTab.classList.remove("active");
       galleryTab.classList.remove("active");
       analysisTab.classList.remove("active");
+      coachTab.classList.remove("active");
 
       if (pageName === "summary") {
         summaryPage.classList.add("active");
@@ -3156,17 +3375,10 @@
         analysisTab.classList.add("active");
       }
 
-      window.scrollTo(0, 0);
-    }
-
-    function applyTheme() {
-      const theme = settings.appTheme || DEFAULT_SETTINGS.appTheme;
-      document.body.classList.remove("theme-light", "theme-purple", "theme-blue", "theme-red");
-
-      if (theme === "light") document.body.classList.add("theme-light");
-      if (theme === "purple") document.body.classList.add("theme-purple");
-      if (theme === "blue") document.body.classList.add("theme-blue");
-      if (theme === "red") document.body.classList.add("theme-red");
+      if (pageName === "coach") {
+        coachPage.classList.add("active");
+        coachTab.classList.add("active");
+      }
     }
 
     function saveThemeOnly() {
@@ -3324,6 +3536,7 @@
         saveDailyLogs();
         saveAchievements();
 
+        document.body.classList.remove("setup-mode");
         nameOverlay.style.display = "none";
         showPage("summary");
         renderApp();
@@ -3361,10 +3574,12 @@
         !settings.targetWeight;
 
       if (missingSetup) {
+        document.body.classList.add("setup-mode");
         fillSetupDefaults();
         nameOverlay.style.display = "flex";
         setTimeout(() => firstNameInput.focus(), 200);
       } else {
+        document.body.classList.remove("setup-mode");
         nameOverlay.style.display = "none";
       }
     }
@@ -3617,7 +3832,7 @@
       const name = settings.userName || "Kullanıcı";
 
       if (brandGreetingText) {
-        brandGreetingText.innerHTML = "Merhaba " + name + ",<br>bugün ne kadar <span class='green-word'>eriyoruz?</span> 😄";
+        brandGreetingText.innerHTML = "Merhaba " + name + ",<br>bugün ne kadar <span class='green-word'>eriyoruz?</span>";
       }
 
       const targetText = settings.targetWeight > 0 ? formatNumber(settings.targetWeight) + " kg" : "--";
@@ -3657,8 +3872,8 @@
       if (progressTextEl) {
         if (progressPercent >= 100) progressTextEl.textContent = "Hedef tamamlandı. Harika iş!";
         else if (progressPercent >= 50) progressTextEl.textContent = "Yarısından fazlası gitti. Devam!";
-        else if (progressPercent > 0) progressTextEl.textContent = "Harika gidiyorsun! Devam et!";
-        else progressTextEl.textContent = "Başlıyoruz. İlk erime yolda!";
+        else if (progressPercent > 0) progressTextEl.textContent = "Hedefe doğru ilerliyorsun.";
+        else progressTextEl.textContent = "İlk ölçümden sonra ilerleme burada görünür.";
       }
     }
 
@@ -3822,6 +4037,7 @@
       coachMessageSeed++;
       localStorage.setItem("fitTakipCoachSeed", String(coachMessageSeed));
       renderSmartCoach();
+      renderCoachPage();
     }
 
     function getDaysSinceLastRecord() {
@@ -3836,6 +4052,149 @@
       const definitions = getAchievementDefinitions();
       const unlocked = definitions.filter(item => unlockedAchievements.includes(item.id));
       return unlocked[unlocked.length - 1] || null;
+    }
+
+
+    function renderWeightEquivalent() {
+      if (!weightEquivalentContentEl) return;
+
+      const lost = getTotalLostWeight();
+
+      if (!lost || lost <= 0) {
+        weightEquivalentContentEl.innerHTML = `
+          <div class="empty">İlk kilo düşüşünden sonra burada verdiğin kilonun günlük hayattaki karşılığı görünecek.</div>
+        `;
+        return;
+      }
+
+      const items = [
+        { icon: "🥛", label: "1 litrelik su/süt", weight: 1 },
+        { icon: "🐱", label: "ortalama ev kedisi", weight: 4.5 },
+        { icon: "🎳", label: "bowling topu", weight: 7 },
+        { icon: "🧱", label: "dolu damacana parçası", weight: 5 },
+        { icon: "🛞", label: "otomobil lastiği", weight: 10 }
+      ];
+
+      const best = items
+        .map(item => ({ ...item, count: lost / item.weight }))
+        .filter(item => item.count >= 0.7)
+        .sort((a, b) => Math.abs(a.count - Math.round(a.count)) - Math.abs(b.count - Math.round(b.count)))
+        .slice(0, 3);
+
+      weightEquivalentContentEl.innerHTML = `
+        <div class="equivalent-main">
+          <div class="equivalent-number">${formatNumber(lost)} kg</div>
+          <div class="muted">Toplam verdiğin kilo</div>
+        </div>
+
+        <div class="equivalent-grid">
+          ${best.map(item => `
+            <div class="equivalent-card">
+              <div class="equivalent-icon">${item.icon}</div>
+              <div>
+                <div class="equivalent-title">≈ ${Math.max(1, Math.round(item.count))} ${item.label}</div>
+                <div class="equivalent-sub">${formatNumber(item.weight)} kg baz alınır</div>
+              </div>
+            </div>
+          `).join("")}
+        </div>
+      `;
+    }
+
+    function renderWeightMilestones() {
+      if (!weightMilestoneContentEl) return;
+
+      const lost = getTotalLostWeight();
+      const milestones = [1, 5, 10, 15, 20, 25, 30];
+
+      weightMilestoneContentEl.innerHTML = `
+        <div class="milestone-list">
+          ${milestones.map(value => {
+            const done = lost >= value;
+            return `
+              <div class="milestone-item ${done ? "done" : ""}">
+                <div class="milestone-icon">${done ? "✅" : "🔒"}</div>
+                <div>
+                  <div class="milestone-title">${value} kg hedefi</div>
+                  <div class="milestone-sub">${done ? "Tamamlandı" : formatNumber(Math.max(0, value - lost)) + " kg kaldı"}</div>
+                </div>
+              </div>
+            `;
+          }).join("")}
+        </div>
+      `;
+    }
+
+    function renderNextTarget() {
+      if (!nextTargetContentEl) return;
+
+      const latest = getLatestWeightRecord();
+      if (!latest) {
+        nextTargetContentEl.innerHTML = `<div class="empty">İlk kilo kaydından sonra sonraki hedef burada görünür.</div>`;
+        return;
+      }
+
+      const current = latest.weight;
+      const target = settings.targetWeight;
+      const remaining = current - target;
+
+      if (remaining <= 0) {
+        nextTargetContentEl.innerHTML = `
+          <div class="tip-card">
+            <div class="tip-title green">Hedef tamamlandı</div>
+            <div class="tip-text">Şimdi yeni hedef belirleyebilir veya koruma dönemine geçebilirsin.</div>
+          </div>
+        `;
+        return;
+      }
+
+      const nextMini = Math.max(target, Math.floor(current - 1));
+      nextTargetContentEl.innerHTML = `
+        <div class="mini-row">
+          <div class="mini-label">Mevcut kilo</div>
+          <div class="mini-value">${formatNumber(current)} kg</div>
+        </div>
+        <div class="mini-row">
+          <div class="mini-label">Ana hedef</div>
+          <div class="mini-value green">${formatNumber(target)} kg</div>
+        </div>
+        <div class="mini-row">
+          <div class="mini-label">Hedefe kalan</div>
+          <div class="mini-value yellow">${formatNumber(remaining)} kg</div>
+        </div>
+        <div class="mini-row">
+          <div class="mini-label">Sıradaki küçük hedef</div>
+          <div class="mini-value blue">${formatNumber(nextMini)} kg</div>
+        </div>
+      `;
+    }
+
+    function renderCoachInfoCard() {
+      if (!coachInfoCardContentEl) return;
+
+      const tips = [
+        "Düzenli ölçüm, tek bir tartı sonucundan daha doğru fikir verir.",
+        "Bel çevresi değişimi bazen kilodan daha iyi ilerleme göstergesi olabilir.",
+        "Kilo günlük olarak su, tuz ve uykuya göre oynayabilir; haftalık trende bakmak daha sağlıklıdır.",
+        "Fotoğrafları aynı ışıkta ve aynı mesafeden çekmek değişimi daha net gösterir.",
+        "Küçük hedefler büyük hedefe ulaşmayı kolaylaştırır."
+      ];
+
+      const index = Math.abs((new Date().getDate() + records.length + dailyLogs.length) % tips.length);
+
+      coachInfoCardContentEl.innerHTML = `
+        <div class="tip-card">
+          <div class="tip-title">Bugünün notu</div>
+          <div class="tip-text">${tips[index]}</div>
+        </div>
+      `;
+    }
+
+    function renderCoachPage() {
+      renderWeightEquivalent();
+      renderWeightMilestones();
+      renderNextTarget();
+      renderCoachInfoCard();
     }
 
     function renderSmartCoach() {
@@ -4113,7 +4472,7 @@
 
       ctx.fillStyle = "#ffffff";
       ctx.font = "bold 48px Arial";
-      ctx.fillText("Merhaba " + (settings.userName || "Kullanıcı"), width / 2, 470);
+      ctx.fillText((settings.userName || "Kullanıcı") + " dönüşüm yolculuğu", width / 2, 470);
 
       ctx.fillStyle = "#cbd5df";
       ctx.font = "32px Arial";
@@ -4597,7 +4956,7 @@
 
       ctx.fillStyle = "#ffffff";
       ctx.font = "bold 58px Arial";
-      ctx.fillText("Merhaba, ben " + (settings.userName || "Kullanıcı"), 70, 230);
+      ctx.fillText("" + (settings.userName || "Kullanıcı"), 70, 230);
 
       if (!latestWeight) {
         ctx.fillStyle = "#ffd166";
@@ -4769,6 +5128,7 @@
       firstNameInput.value = "";
       fillSetupDefaults();
 
+      document.body.classList.add("setup-mode");
       nameOverlay.style.display = "flex";
       setTimeout(() => firstNameInput.focus(), 200);
 
@@ -6335,6 +6695,7 @@
       renderWeeklyTasks();
       renderAchievements();
       renderSmartCoach();
+      renderCoachPage();
       renderCalendar();
       renderStoryShareCard();
       renderSmartSummary();
