@@ -11,6 +11,10 @@
   <meta name="apple-mobile-web-app-title" content="Birlikte Eriyoruz" />
   <link rel="manifest" href="manifest.json" />
   <link rel="apple-touch-icon" href="icon-192.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
+  <link rel="icon" type="image/png" sizes="512x512" href="icon-512.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png" />
+
 
   <style>
     * { box-sizing: border-box; }
@@ -2181,12 +2185,80 @@
       margin-bottom: 18px;
     }
 
+
+    .summary-only {
+      display: block;
+    }
+
+    body:not(.summary-active) .summary-only {
+      display: none !important;
+    }
+
+    .metric-card-grid.summary-only {
+      display: grid !important;
+      grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      gap: 8px !important;
+      margin-bottom: 14px !important;
+    }
+
+    .metric-card-grid .premium-metric-card {
+      min-height: 112px !important;
+      padding: 12px 9px !important;
+      border-radius: 18px !important;
+    }
+
+    .metric-card-grid .metric-icon {
+      width: 34px !important;
+      height: 34px !important;
+      border-radius: 12px !important;
+      font-size: 18px !important;
+      margin-bottom: 7px !important;
+    }
+
+    .metric-card-grid .premium-metric-label {
+      font-size: 12px !important;
+      line-height: 1.15 !important;
+      margin-bottom: 6px !important;
+    }
+
+    .metric-card-grid .premium-metric-value {
+      font-size: clamp(16px, 4.8vw, 22px) !important;
+      line-height: 1.05 !important;
+      word-break: keep-all;
+    }
+
+    .summary-body-change-card {
+      margin-bottom: 18px;
+    }
+
+    .achievement-collapsible summary {
+      font-size: 20px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    @media (max-width: 430px) {
+      .metric-card-grid.summary-only {
+        grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+        gap: 7px !important;
+      }
+
+      .metric-card-grid .premium-metric-card {
+        min-height: 106px !important;
+        padding: 10px 7px !important;
+      }
+
+      .metric-card-grid .premium-metric-label {
+        font-size: 11px !important;
+      }
+    }
+
   </style>
 </head>
 
 <body class="summary-active">
 <div class="app">
-    <div class="app-topbar">
+    <div class="app-topbar summary-only">
       <div class="brand-logo top-logo">
         <div class="brand-logo-inner">BE</div>
       </div>
@@ -2230,7 +2302,8 @@
         <div class="premium-metric-value green" id="heroLostChip">--</div>
       </div>
     </div>
-<div class="info-card summary-only summary-body-change-card">
+
+    <div class="info-card summary-only summary-body-change-card">
       <h2>Vücut değişimi</h2>
       <div id="summaryBodyChangeContent"></div>
     </div>
@@ -2776,7 +2849,7 @@
   <div id="nameOverlay" class="name-overlay">
     <div class="name-box">
       <h2>Hoş geldin 👋</h2>
-      <p>Önce seni tanıyalım. Bu bilgilerle hedeflerini, VKİ durumunu ve haftalık takip sistemini hazırlayacağım.</p>
+      <p>Önce seni tanıyalım. Yaş, boy, kilo, cinsiyet ve hedef bilgilerini gir; uygulama sana göre başlasın.</p>
 
       <div class="setup-step-title">Kişisel bilgiler</div>
 
@@ -2885,7 +2958,8 @@
       height: 168,
       age: 30,
       gender: "male",
-      soundEnabled: true
+      soundEnabled: true,
+      setupComplete: false
     };
 
     let settings = {
@@ -3233,7 +3307,8 @@
           weeklyExerciseTarget,
           height,
           age,
-          gender
+          gender,
+          setupComplete: true
         };
 
         records = [];
@@ -3277,7 +3352,15 @@
     }
 
     function checkFirstName() {
-      if (!settings.userName || settings.userName.trim() === "") {
+      const missingSetup =
+        !settings.setupComplete ||
+        !settings.userName ||
+        !settings.age ||
+        !settings.height ||
+        !settings.startWeight ||
+        !settings.targetWeight;
+
+      if (missingSetup) {
         fillSetupDefaults();
         nameOverlay.style.display = "flex";
         setTimeout(() => firstNameInput.focus(), 200);
@@ -4663,7 +4746,7 @@
       const confirmed = confirm("Yeni kullanıcı başlatılsın mı? Tüm ölçüm, fotoğraf, egzersiz ve ayar verileri sıfırlanacak.");
       if (!confirmed) return;
 
-      settings = { ...DEFAULT_SETTINGS };
+      settings = { ...DEFAULT_SETTINGS, setupComplete: false };
       records = [];
       photoRecords = [];
       dailyLogs = [];
